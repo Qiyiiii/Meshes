@@ -9,5 +9,9 @@ void per_face_normals(
   ////////////////////////////////////////////////////////////////////////////
   // Replace with your code:
   N = Eigen::MatrixXd::Zero(F.rows(),3);
+  //get the norm of the face by getting the area of triangle mesh
+  for (int i = 0; i < F.rows(); i++) {
+    N.row(i) = triangle_area_normal(V.row(F(i,0)), V.row(F(i,1)), V.row(F(i,2)));
+    }
   ////////////////////////////////////////////////////////////////////////////
 }
